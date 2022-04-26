@@ -80,7 +80,7 @@ main {
 
 .card--white {
     background-color: var(--white);
-    box-shadow: 5px 15px 50px -25px rgb(118 112 112);
+    box-shadow: 15px 15px 45px -28px rgb(135 135 135)
 }
 
 .card--white--tall {
@@ -129,9 +129,8 @@ main {
 }
 
 .card__copy {
-    inline-size: 90%;
     color: var(--white);
-    margin-block: 0.875rem;
+    margin-block: 0.8125rem;
     font-weight: 600;
     font-size: 1.2rem;
     letter-spacing: 0.5px;
@@ -146,7 +145,7 @@ main {
     color: rgba(236, 242, 248, 0.7);
     display: block;
     font-size: 0.8125rem;
-    inline-size: 90%;
+    inline-size: 95%;
     line-height: 1.3;
 }
 
