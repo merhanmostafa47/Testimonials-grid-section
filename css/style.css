@@ -1,0 +1,188 @@
+/* Font */
+@font-face {
+    font-family: 'Barlow Semi Condensed';
+    src: url(../fonts/BarlowSemiCondensed-Regular.ttf);
+    font-display: swap;
+}
+
+/* General rules */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Barlow Semi Condensed';
+}
+
+/* Variables */
+:root {
+    /* Primary colors */
+    --moderate-violet: rgb(117, 65, 200);
+    --very-dark-grayish-blue: rgb(72, 85, 106);
+    --very-dark-blackish-blue: rgb(25, 33, 46);
+    --white: rgb(255, 255, 255);
+    /* Netural */
+    --light-gray: rgb(207, 207, 207);
+    --light-grayish-blue: rgb(236, 242, 248);
+}
+
+/* Start main */
+main {
+    background-color: var(--light-grayish-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 100vh;
+    padding: 8.125rem;
+}
+
+/* Start cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 0.25fr));
+    gap: 1.5625rem;
+}
+
+.card {
+    padding: 2rem;
+    border-radius: .625rem;
+}
+
+.card--violet {
+    background-color: var(--moderate-violet);
+    grid-column: span 2;
+    order: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.card--violet::after {
+    content: "";
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    background: url(../images/bg-pattern-quotation.svg) no-repeat;
+    background-position: top right;
+    inset-block-start: 0;
+    inset-inline-end: 6.25rem;
+    z-index: -1;
+}
+
+.card--grayish {
+    background-color: var(--very-dark-grayish-blue);
+    order: 2;
+}
+
+.card--blackish {
+    background-color: var(--very-dark-blackish-blue);
+    grid-column: span 2;
+    order: 5;
+}
+
+.card--white {
+    background-color: var(--white);
+    box-shadow: 5px 15px 50px -25px rgb(118 112 112);
+}
+
+.card--white--tall {
+    grid-row: span 2;
+    order: 3;
+}
+
+.card--white--small {
+    order: 4;
+}
+
+/* End cards */
+
+.card__header {
+    display: flex;
+    align-items: center;
+}
+
+.card__image {
+    margin-inline-end: 1rem;
+}
+
+.card__image img {
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    inline-size: 1.875em;
+}
+
+.card__title {
+    color: var(--light-grayish-blue);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.card--white .card__title {
+    color: var(--very-dark-blackish-blue);
+}
+
+.card__subtitle {
+    color: rgba(236, 242, 248, 0.5);
+    font-size: 0.8125rem;
+}
+
+.card--white .card__subtitle {
+    color: var(--light-gray);
+}
+
+.card__copy {
+    inline-size: 90%;
+    color: var(--white);
+    margin-block: 0.875rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.card--white .card__copy {
+    color: var(--very-dark-blackish-blue);
+}
+
+.card__review {
+    color: rgba(236, 242, 248, 0.7);
+    display: block;
+    font-size: 0.8125rem;
+    inline-size: 90%;
+    line-height: 1.3;
+}
+
+.card--white .card__review {
+    color: var(--very-dark-grayish-blue);
+}
+
+/* Start cards media */
+
+@media (max-width: 72em) {
+    main {
+        padding: 3.75rem 1.25rem;
+    }
+
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .card {
+        grid-column: auto;
+        grid-row: auto;
+        order: initial;
+    }
+
+    .card__copy,
+    .card__review {
+        inline-size: 100%;
+    }
+}
+
+@media (min-width: 48em) and (max-width: 72em) {
+    .cards {
+        grid-template-columns: repeat(auto-fill, minmax(18.75em, 0.5fr));
+    }
+}
+
+/* End cards media */
+
+/* End main */
